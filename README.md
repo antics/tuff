@@ -59,8 +59,7 @@ All spans must be within a `<p>` but not necessarily directly after. You put the
 Pray for a tough instructor<span class="snn"></span>
 to hear and act and stay within you.
 We have been busy accumulating solace.
-Make us afraid of how we were.
-<span class="sn">Jalāl al-Dīn Muḥammad Rūmī - or simply Rumi</span>
+Make us afraid of how we were.<span class="sn">Jalāl al-Dīn Muḥammad Rūmī - or simply Rumi</span>
 ```
 
 `.mn` Jibberish note for jibberish.
@@ -76,7 +75,7 @@ Add a picture as a sidenote `.mn`. But do not print it `.np`.
 <span class="mn np"><img src="vacilala.png"></span>
 ```
 
-Use the .danger class to make the text red.
+Use `.danger` to make the text red.
 ```html
 <b class="danger">Attention!</b>
 ```
