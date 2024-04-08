@@ -1,0 +1,422 @@
+/*
+tuff.css is a slimmed down version based on Tufte[1] and with added
+print[2] styles.
+
+Colors are based on the magnificent Plan9 acme[3] editor.
+
+[1] https://github.com/edwardtufte/tufte-css
+[2] https://gist.github.com/davidhund/0cf7dd437402c5a1dcb7bd701141a4a7
+[3] http://acme.cat-v.org/
+*/
+@charset "UTF-8";
+
+@media screen {
+
+html {
+	border-left: 15px solid #99994c;
+    font-size: 15px;
+}
+
+body {
+    width: 87.5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12.5%;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    background-color: #FFFFEA;
+    color: #111;
+    max-width: 1400px;
+    counter-reset: sn-counter;
+}
+
+h1 {
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+h2 {
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    line-height: 1;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    width: 55%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.numeral {
+    font-family: et-book-roman-old-style;
+}
+
+.danger {
+    color: red;
+}
+
+article {
+    padding: 5rem 0rem;
+}
+
+section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+p,
+dl,
+ol,
+ul {
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline;
+    text-align: justify;
+    text-justify: inter-character;
+}
+
+address {
+	font-size: 1.2rem;
+}
+
+blockquote {
+    font-size: 1.4rem;
+}
+
+blockquote p {
+    width: 55%;
+    margin-right: 40px;
+}
+
+blockquote footer {
+    width: 55%;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+section > p,
+section > footer,
+section > table {
+    width: 55%;
+}
+
+/* 50 + 5 == 55, to be the same width as paragraph */
+section > dl,
+section > ol,
+section > ul {
+    width: 50%;
+    -webkit-padding-start: 5%;
+}
+
+dt:not(:first-child),
+li:not(:first-child) {
+    margin-top: 0.25rem;
+}
+
+figure {
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    max-width: 55%;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0 0 1em 0;
+}
+
+figcaption {
+	text-align: right;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+figure.fullwidth figcaption {
+    margin-right: 24%;
+}
+
+/* Links: replicate underline that clears descenders */
+a:link,
+a:visited {
+    color: inherit;
+}
+
+a:link {}
+
+
+/* Sidenotes, margin notes, figures, captions */
+img {
+    max-width: 100%;
+}
+
+.sn,
+.mn {
+    float: right;
+    clear: right;
+    margin-right: -60%;
+    width: 50%;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.snn {
+    counter-increment: sn-counter;
+    display: inline-block;
+    max-height: 2rem; /* should be less than or equal to paragraph line-height */
+}
+
+.snn:after,
+.sn:before {
+    font-family: et-book-roman-old-style;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.snn:after {
+    content: counter(sn-counter);
+    font-size: 1rem;
+    top: -0.5rem;
+    left: 0.1rem;
+}
+
+.sn:before {
+    content: counter(sn-counter) " ";
+    font-size: 1rem;
+    top: -0.5rem;
+}
+
+blockquote .sn,
+blockquote .mn {
+    margin-right: -82%;
+    min-width: 59%;
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+pre {
+	max-width: 55%;
+	background: #eaffff;
+	border: 1px solid #8888cc;
+	padding: 1%;
+}
+code, pre {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+    clear: both;
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
+}
+
+span.newthought {
+    font-variant: small-caps;
+    font-size: 1.2em;
+}
+
+    label {
+        cursor: pointer;
+    }
+
+    table {
+        width: 85%;
+    }
+
+    img {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    section > p,
+    section > footer,
+    section > table {
+        width: 100%;
+    }
+
+    pre {
+        max-width: 100%;
+    }
+
+    section > dl,
+    section > ol,
+    section > ul {
+        width: 90%;
+    }
+
+    figure {
+        max-width: 90%;
+    }
+
+    figcaption,
+    figure.fullwidth figcaption {
+        margin-right: 0%;
+        max-width: none;
+    }
+
+    blockquote {
+        margin-left: 1.5em;
+        margin-right: 0em;
+    }
+
+    blockquote p,
+    blockquote footer {
+        width: 100%;
+    }
+
+	.sn,
+    .mn {
+        display: block;
+        float: left;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        vertical-align: baseline;
+        position: relative;
+    }
+}
+
+
+/**
+ * = PRINT styles
+ *
+ * Source: https://gist.github.com/davidhund/0cf7dd437402c5a1dcb7bd701141a4a7
+ */
+
+@media print {
+
+	@page {
+	  size: A4;
+	  /* Chrome sets own margins, we change these printer settings */
+	  margin: 27mm 40mm 27mm 25mm;
+	}
+
+	article {
+		text-align: justify;
+		font-size: 11pt;
+		font-family: "Times New Roman", serif;
+
+	}
+	*,
+	*:before,
+	*:after,
+	*:first-letter,
+	p:first-line,
+	div:first-line,
+	blockquote:first-line,
+	li:first-line {
+		background: transparent !important;
+		color: #000 !important; /* Black prints faster:
+								   http://www.sanbeiji.com/archives/953 */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited { text-decoration: underline; }
+
+	a[href]:after { content: " (" attr(href) ")"; }
+
+	abbr[title]:after { content: " (" attr(title) ")"; }
+
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after { content: ""; }
+
+	pre { white-space: pre-wrap !important; }
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+
+	thead { display: table-header-group; }
+
+	tr,
+	img { page-break-inside: avoid; }
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 { page-break-after: avoid; }
+
+	h1 { font-size: 14pt }
+	h2, h3, h4, h5 {
+		font-size: 12pt;
+		font-weight: bold;
+	}
+
+	p {
+		text-indent: 7mm;
+		margin: 0 0 1mm;
+	}
+
+	/**
+	 * HIDE certain elements completely
+	 */
+	.site-navigation, nav, .np {
+		display: none;
+	}
+
+	/**
+	 * Or go Nuclear and use this:
+	 * from: https://medium.com/@matuzo/i-totally-forgot-about-print-style-sheets-f1e6604cfd6#.9de6r4yhr
+	 *
+	 *   body > *:not(main) { display: none; }
+	 *
+	 */
+
+}
